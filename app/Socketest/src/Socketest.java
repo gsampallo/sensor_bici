@@ -12,7 +12,12 @@ public class Socketest {
 
     }
 
+    IndicadorFrame indicadorFrame;
+
     public Socketest() throws IOException {
+
+    	indicadorFrame = new IndicadorFrame();
+
     	ServerSocket serverSocket = new ServerSocket(4444);
         try {
 
@@ -49,7 +54,12 @@ public class Socketest {
             //int i = 0;
             while ((inputLine = in.readLine()) != null) {
             	System.out.println(inputLine);
-            	//i++;
+
+            	double valor1 = (double)Double.valueOf(inputLine).doubleValue();
+            	
+            	int valor = (int)valor1;
+
+            	indicadorFrame.setValor(valor);
             }
             //out.close();
             in.close();

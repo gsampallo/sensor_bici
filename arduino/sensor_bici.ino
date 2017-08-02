@@ -20,7 +20,8 @@ int vueltasAcum = 0;
 
 const char* ssid = "linksys";
 const char* password = "perromateo";
-
+WiFiClient client;
+boolean conectado = false;
 void setup() {
 
   Serial.begin(9600);
@@ -41,14 +42,17 @@ void setup() {
     Serial.println(WiFi.localIP());
     
   }
-  
+  if (client.connect(servidor, puerto)) {
+    Serial.println("conectado");
+    conectado = true;
+  }
   //lcd.clear();
 }
 
 
 unsigned long currentTime;
 float frequency;
-WiFiClient client;
+
 void loop() {
 
   currentTime = millis();
@@ -60,7 +64,7 @@ void loop() {
   lcd.setCursor(0, 0);
   lcd.print(frequency);
   */
-  if (client.connect(servidor, puerto)) {
+  if (conectado) {
     client.print(frequency);
     client.print("\r\n");
   }
