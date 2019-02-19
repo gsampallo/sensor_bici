@@ -18,8 +18,8 @@ int pinLed = D7;
 int vueltas = 0;
 int vueltasAcum = 0;
 
-const char* ssid = "linksys";
-const char* password = "perromateo";
+const char* ssid = "SSID";
+const char* password = "CLAVE";
 WiFiClient client;
 boolean conectado = false;
 void setup() {
